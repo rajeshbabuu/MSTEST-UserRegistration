@@ -27,7 +27,17 @@ namespace UserTesting
             objTest.ValidateLastName("Nimje");
             string name = @"^[A-Z]{1}[a-z]{2,}$";
             var regex = new Regex(name);
-            StringAssert.Matches("Nimje", regex);
+            StringAssert.Matches("Kumar", regex);
+        }
+        [TestMethod]
+        public void TestEmail()
+        {
+            UserRegistrationTesting.UserRegistrationClass objTest = new UserRegistrationTesting.UserRegistrationClass();
+
+            objTest.ValidateEmail("abc.rajesh@bl.co.in");
+            string name = @"^([a][b][c])([_\.\+\-])([a-zA-Z0-9]+)\@([b][l])\.([c][o])\.([a-z]{2})*$";
+            var regex = new Regex(name);
+            StringAssert.Matches("abc.xyz@bl.co.in", regex);
         }
     }
 }
