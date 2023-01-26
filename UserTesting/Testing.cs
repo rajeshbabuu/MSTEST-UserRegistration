@@ -39,5 +39,16 @@ namespace UserTesting
             var regex = new Regex(name);
             StringAssert.Matches("abc.xyz@bl.co.in", regex);
         }
-    }
+
+        [TestMethod]
+        public void TestMobileNumber()
+        {
+            UserRegistrationTesting.UserRegistrationClass objTest = new UserRegistrationTesting.UserRegistrationClass();
+
+            objTest.ValidateMobileNumber("+91 1234567890");
+            string mobileNum = @"^\+[1-9]{1}[0-9]{0,2}\s[1-9]{1}[0-9]{9}";
+            var regex = new Regex(mobileNum);
+            StringAssert.Matches("+91 56588567890", regex);
+        }
+}
 }
