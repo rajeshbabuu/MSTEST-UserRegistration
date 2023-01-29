@@ -83,5 +83,16 @@ namespace UserTesting
             var regex = new Regex(password);
             StringAssert.Matches("Rajeshh12hh", regex);
         }
+
+        [TestMethod]
+        public void TestPasswordRule4()
+        {
+            UserRegistrationTesting.UserRegistrationClass objTest = new UserRegistrationTesting.UserRegistrationClass();
+
+            objTest.ValidatePassword("Rajeshh45hh#");
+            string password = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\D\W).\S{8,15}$";
+            var regex = new Regex(password);
+            StringAssert.Matches("Rajesh45hh#", regex);
+        }
     }
 }
