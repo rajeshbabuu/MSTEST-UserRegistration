@@ -50,5 +50,16 @@ namespace UserTesting
             var regex = new Regex(mobileNum);
             StringAssert.Matches("+91 56588567890", regex);
         }
-}
+
+        [TestMethod]
+        public void TestPasswordRule1()
+        {
+            UserRegistrationTesting.UserRegistrationClass objTest = new UserRegistrationTesting.UserRegistrationClass();
+
+            objTest.ValidatePassword("Rajesssh");
+            string password = @"^[A-Za-z]{1}[A-Za-z0-9]{7,}";
+            var regex = new Regex(password);
+            StringAssert.Matches("Rajesssh", regex);
+        }
+    }
 }
